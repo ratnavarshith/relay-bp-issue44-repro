@@ -1,0 +1,18 @@
+{
+  "circuit": "bicycle_bivariate_144_12_12_memory_Z",
+  "distance": 12,
+  "rounds": 12,
+  "error_rate": 0.003,
+  "basis": "Z",
+  "decoder": {
+    "gamma0": 0.125,
+    "pre_iter": 80,
+    "num_sets": 600,
+    "set_max_iter": 60,
+    "gamma_dist_interval": [-0.24, 0.66],
+    "stop_nconv": 5
+  },
+  "shots": 2000,
+  "num_workers": 10,
+  "reference": {"shots": 500000, "errors": 209}
+}

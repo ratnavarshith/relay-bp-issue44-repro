@@ -1,0 +1,30 @@
+{
+  "shots": 300000,
+  "errors": 118,
+  "ler": 0.0003933333333333333,
+  "ci95_wilson": [
+    0.0003284873028934781,
+    0.0004709744597321642
+  ],
+  "reference": {
+    "shots": 500000,
+    "errors": 209,
+    "ler": 0.000418,
+    "ci95_wilson": [
+      0.0003650497729730633,
+      0.00047862694488997806
+    ]
+  },
+  "seconds": 1708.308652639389,
+  "versions": {
+    "relay-bp": "0.2.2",
+    "stim": "1.16.0",
+    "sinter": "1.16.0",
+    "numpy": "2.2.6",
+    "scipy": "1.17.1",
+    "python": "3.11.9"
+  },
+  "machine": "Windows-10-10.0.26200-SP0",
+  "cpu_count": 20,
+  "seed": "not controllable: sinter.collect exposes no seed"
+}
