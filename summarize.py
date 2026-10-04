@@ -35,10 +35,13 @@ with open("results.csv", "w", newline="") as f:
     writer.writerows(rows)
 
 by_run = {row["run"]: row for row in rows}
-x, z = by_run["relay_bp5_X"], by_run["relay_bp5_Z"]
-px, pz = x["ler_per_shot"], z["ler_per_shot"]
+x = by_run["relay_bp5_X"]
+zs = [row for name, row in by_run.items() if name.startswith("relay_bp5_Z")]
+nx, nz = x["shots"], sum(row["shots"] for row in zs)
+px, pz = x["errors"] / nx, sum(row["errors"] for row in zs) / nz
 p = 1 - (1 - px) * (1 - pz)
-sd = math.sqrt(px * (1 - px) / x["shots"] + pz * (1 - pz) / z["shots"])
+sd = math.sqrt(px * (1 - px) / nx + pz * (1 - pz) / nz)
+print(f"p_X = {px:.4e}, p_Z = {pz:.4e} ({len(zs)} Z runs pooled)")
 print(f"X or Z per shot: {p:.4e}")
 print(
     f"per cycle: {per_cycle(p):.3e}  "
